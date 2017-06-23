@@ -42,43 +42,6 @@ echo $TOKEN
 curl -H "Authorization: Bearer $TOKEN" http://127.0.0.1:10180/secure
 ```
 
-## Package the app
-Once we have a working binary, we can use Docker to package it. 
-```bash
-# Check out the Dockerfile.  What is it doing?
-cat Dockerfile
-
-# Use the Dockerfile to build a new monolith image.
-docker build -t askcarter/monolith:1.0.0 .
-```
-
-After building the image, use Docker to verfiy that it still functions the same.
-```bash
-# Start an instance of your newly created docker image.
-docker run -d askcarter/monolith:1.0.0
-
-# Use docker ps to get the container's ID
-docker ps
-
-# Use docker inspect to get find out the IP Address of your running container image.
-docker inspect <container-id>
-
-# Use the IP Address to test the instance's functionality.
-curl http://<docker-ip>
-```
-
-## [Optional] Push the Image to Docker Hub
-If you've set up a Docker Hub account, you can optionally push the image to the Docker Hub. 
-```bash
-# Associate the docker command line tool with your Docker Hub account.
-docker login
-
-# Use the Dockerfile to build a new monolith image.
-docker build -t <your_repo>/monolith:1.0.0 .
-
-# Upload the image into your Docker repository.
-docker push <your_repo>/monolith:1.0.0
-```
 ## Choosing a container registry location
 
 Your private registry name is your Google Cloud Platform project ID combined with a gcr.io hostname:
@@ -108,13 +71,36 @@ For example, example-image from awesome-project, served in the United States, ha
 us.gcr.io/awesome-project/example-image
 ```
 
-To push to the registry using gcloud and docker, use '--' to pass docker args
+
+## Package the app
+Once we have a working binary, we can use Docker to package it. 
 ```bash
+# Check out the Dockerfile.  What is it doing?
+cat Dockerfile
 
 # Use the Dockerfile to build a new monolith image.
 docker build -t <gcr.io>/<project_id>/monolith:1.0.0 .
+```
 
-# Upload the image into your Docker repository.
+After building the image, use Docker to verfiy that it still functions the same.
+```bash
+# Start an instance of your newly created docker image.
+docker run -d <gcr.io>/<project_id>/monolith:1.0.0
+
+# Use docker ps to get the container's ID
+docker ps
+
+# Use docker inspect to get find out the IP Address of your running container image.
+docker inspect <container-id>
+
+# Use the IP Address to test the instance's functionality.
+curl http://<docker-ip>
+```
+
+## [Optional] Push the Image to Docker Hub
+To push to the registry using gcloud and docker, use '--' to pass docker args
+```bash
+# Upload the image into your container registry
 gcloud docker push <gcr.io>/<project_id>/monolith:1.0.0
 ```
 
