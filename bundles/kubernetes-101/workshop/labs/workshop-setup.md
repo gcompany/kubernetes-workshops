@@ -36,6 +36,6 @@ In your Cloud Shell environment clone the following repository.
 ```bash
 mkdir -p ~/go/src/github.com/GoogleCloudPlatform
 cd ~/go/src/github.com/GoogleCloudPlatform
-git clone https://github.com/GoogleCloudPlatform/kubernetes-workshops.git
+git clone https://github.com/gcompany/kubernetes-workshops
 cd kubernetes-workshops/bundles/kubernetes-101/workshop
 ```
