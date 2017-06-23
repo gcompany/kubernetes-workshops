@@ -67,6 +67,57 @@ docker inspect <container-id>
 curl http://<docker-ip>
 ```
 
+## [Optional] Push the Image to Docker Hub
+If you've set up a Docker Hub account, you can optionally push the image to the Docker Hub. 
+```bash
+# Associate the docker command line tool with your Docker Hub account.
+docker login
+
+# Use the Dockerfile to build a new monolith image.
+docker build -t <your_repo>/monolith:1.0.0 .
+
+# Upload the image into your Docker repository.
+docker push <your_repo>/monolith:1.0.0
+```
+## Choosing a registry name
+
+Your private registry name is your Google Cloud Platform project ID combined with a gcr.io hostname:
+
+- us.gcr.io hosts your images in the United States
+ - eu.gcr.io hosts your images in the European Union
+ - asia.gcr.io hosts your images in Asia
+ - gcr.io without a prefix hosts your images in the United States, but this behavior may change in a future release
+
+
+## Container Registry name format
+The registry name format is below:
+
+```bash
+[HOSTNAME]/[YOUR-PROJECT-ID]/[IMAGE]
+```
+
+where
+
+ - [HOSTNAME] is the gcr.io hostname
+ - [YOUR-PROJECT-ID] is your Google Cloud Platform Console project ID
+ - [IMAGE] is your image's name
+ - [IMAGE_ID] is your image's ID (from docker images list)
+
+For example, example-image from awesome-project, served in the United States, has the following registry name:
+```bash
+us.gcr.io/awesome-project/example-image
+```
+
+To push to the registry using gcloud and docker, use '--' to pass docker args
+```bash
+
+# Use the Dockerfile to build a new monolith image.
+docker build -t <gcr.io>/<project_id>/monolith:1.0.0 .
+
+# Upload the image into your Docker repository.
+gcloud docker push <gcr.io>/<project_id>/monolith:1.0.0
+```
+
 ## Clean up
 After verifying everything works as expected, clean up your environment.
 ```bash
@@ -80,15 +131,3 @@ docker rm <container-id>
 docker rmi askcarter/monolith:1.0.0
 ```
 
-## [Optional] Push the Image to Docker Hub
-If you've set up a Docker Hub account, you can optionally push the image to the Docker Hub. 
-```bash
-# Associate the docker command line tool with your Docker Hub account.
-docker login
-
-# Use the Dockerfile to build a new monolith image.
-docker build -t <your_repo>/monolith:1.0.0 .
-
-# Upload the image into your Docker repository.
-docker push <your_repo>/monolith:1.0.0
-```
