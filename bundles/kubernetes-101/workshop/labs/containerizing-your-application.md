@@ -79,11 +79,11 @@ docker build -t <your_repo>/monolith:1.0.0 .
 # Upload the image into your Docker repository.
 docker push <your_repo>/monolith:1.0.0
 ```
-## Choosing a registry name
+## Choosing a container registry location
 
 Your private registry name is your Google Cloud Platform project ID combined with a gcr.io hostname:
 
-- us.gcr.io hosts your images in the United States
+ - us.gcr.io hosts your images in the United States
  - eu.gcr.io hosts your images in the European Union
  - asia.gcr.io hosts your images in Asia
  - gcr.io without a prefix hosts your images in the United States, but this behavior may change in a future release
