@@ -86,6 +86,9 @@ If you've set up a Docker Hub account, you can optionally push the image to the 
 # Associate the docker command line tool with your Docker Hub account.
 docker login
 
+# Use the Dockerfile to build a new monolith image.
+docker build -t <your_repo>/monolith:1.0.0 .
+
 # Upload the image into your Docker repository.
 docker push <your_repo>/monolith:1.0.0
 ```
