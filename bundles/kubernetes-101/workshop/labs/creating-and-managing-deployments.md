@@ -13,6 +13,9 @@ In this lab we will combine everything we learned about Pods and Services to bre
 You will also define internal services for the `auth` and `hello` deployments and an external service for the `frontend` deployment.
 
 ## Tutorial: Creating Deployments
+```
+cd ~/go/src/github.com/GoogleCloudPlatform/kubernetes-workshops/bundles/kubernetes-101/workshop/kubernetes
+```
 
 ### Create and Expose the Auth Deployment
 
