@@ -63,7 +63,7 @@ kubectl create -f services/frontend.yaml
 ### Test the frontend
 
 ```bash
-# Find the public IP address of the LoadBalancer
+# Find the LoadBalancer Ingress ip address from the frontend service
 kubectl describe service frontend
 ```
 
