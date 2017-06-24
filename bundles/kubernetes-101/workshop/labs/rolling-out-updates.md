@@ -70,6 +70,19 @@ kubectl rollout pause deployment hello
 kubectl rollout resume deployment hello
 ```
 
+## Inspect the rollout history
+
+```
+kubectl rollout history deployment hello
+```
+
+Inspect details about a past deployment
+
+```
+kubectl rollout history deployment hello --revision 2
+```
+
+
 ## Exercise: Rollback the Hello service
 
 Use the `kubectl rollout undo` command to rollback to a previous deployment of the Hello service.
