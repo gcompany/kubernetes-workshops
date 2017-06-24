@@ -55,19 +55,19 @@ image: "askcarter/hello:2.0.0"
 ```
 
 ```
-/usr/local/bin/kubectl apply -f deployments/hello.yaml --record
+kubectl apply -f deployments/hello.yaml --record
 ```
 
 ```
-/usr/local/bin/kubectl describe deployments hello
+kubectl describe deployments hello
 ```
 
 ```
-/usr/local/bin/kubectl rollout pause deployment hello
+kubectl rollout pause deployment hello
 ```
 
 ```
-/usr/local/bin/kubectl rollout resume deployment hello
+kubectl rollout resume deployment hello
 ```
 
 ## Exercise: Rollback the Hello service
