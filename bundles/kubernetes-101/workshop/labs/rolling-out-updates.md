@@ -23,25 +23,25 @@ image: "askcarter/auth:2.0.0"
 ```
 
 ```
-/usr/local/bin/kubectl apply -f deployments/auth.yaml --record
+kubectl apply -f deployments/auth.yaml --record
 ```
 
 ```
-/usr/local/bin/kubectl describe deployments auth
+kubectl describe deployments auth
 ```
 
 ```
-/usr/local/bin/kubectl get replicasets
+kubectl get replicasets
 ```
 
 ```
-/usr/local/bin/kubectl rollout history deployment auth
+kubectl rollout history deployment auth
 ```
 
 ## Tutorial: Pause and Resume an Active Rollout
 
 ```
-/usr/local/bin/kubectl rollout history deployment hello
+kubectl rollout history deployment hello
 ```
 
 Modify the hello deployment image:
