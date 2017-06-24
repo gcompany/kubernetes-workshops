@@ -60,6 +60,34 @@ kubectl create -f deployments/frontend.yaml
 kubectl create -f services/frontend.yaml
 ```
 
+### Test the frontend
+
+```bash
+# Find the public IP address of the LoadBalancer
+kubectl describe service frontend
+```
+
+Test the frontend service using the load balancer ip address
+
+```bash
+# Test out the app's default functionality.
+curl -k https://<loadbalancer-ip>
+
+# Attempt to access the app's secure endpoint.
+curl -k https://<loadbalancer-ip>/secure
+
+# Get a JWT token from our application.  We'll use this to access the app's secure endpoint.
+# The password for the next step is 'password'.
+TOKEN=$(curl -k https://<loadbalancer-ip>/login -u user | jq -r '.token')
+
+# Examine the token, if you'd like.
+echo $TOKEN
+
+# Pass the token along the secure endpoint to get the message.
+curl -H "Authorization: Bearer $TOKEN" -k https://<loadbalancer-ip>/secure
+```
+
+
 ## Tutorial: Scaling Deployments
 
 Behind the scenes Deployments manage ReplicaSets. Each deployment is mapped to one active ReplicaSet. Use the `kubectl get replicasets` command to view the current set of replicas.
