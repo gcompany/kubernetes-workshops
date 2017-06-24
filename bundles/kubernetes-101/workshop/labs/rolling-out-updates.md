@@ -9,7 +9,7 @@ Kubernetes makes it easy to rollout updates to your applications using the built
 ## Tutorial: Rollout a new version of the Auth service
 
 ```
-/usr/local/bin/kubectl rollout history deployment auth
+kubectl rollout history deployment auth
 ```
 
 Modify the auth deployment image:
