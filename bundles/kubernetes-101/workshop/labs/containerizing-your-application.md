@@ -8,12 +8,14 @@ The first hurdle to is the application itself.  How do you write it?  How do you
 
 ## Build the app
 
-```bash
-cd ~/go/src/github.com/GoogleCloudPlatform/kubernetes-workshops/bundles/kubernetes-101/workshop
+-Set the GOPATH variable, so that we can build our application.		
+```bash		  ```bash
+ -export GOPATH=~/go		 +~/go/src/github.com/GoogleCloudPlatform/kubernetes-workshops/bundles/kubernetes-101/workshop
 ```
 
 Build the app as a static binary.
 ```bash
+cd ~/go/src/github.com/GoogleCloudPlatform/kubernetes-workshops/bundles/kubernetes-101/workshop
 cd app/monolith
 # main.go contains the app's entry point
 go build -tags netgo -ldflags "-extldflags '-lm -lstdc++ -static'" .
