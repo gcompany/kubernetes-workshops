@@ -10,7 +10,7 @@ The first hurdle to is the application itself.  How do you write it?  How do you
 
 Set the GOPATH variable, so that we can build our application.		
 ```bash
- -export GOPATH=~/go		 +~/go/src/github.com/GoogleCloudPlatform/kubernetes-workshops/bundles/kubernetes-101/workshop
+ export GOPATH=~/go
 ```
 
 Build the app as a static binary.
