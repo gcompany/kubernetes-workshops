@@ -9,7 +9,7 @@ The first hurdle to is the application itself.  How do you write it?  How do you
 ## Build the app
 
 ```bash
-~/go/src/github.com/GoogleCloudPlatform/kubernetes-workshops/bundles/kubernetes-101/workshop
+cd ~/go/src/github.com/GoogleCloudPlatform/kubernetes-workshops/bundles/kubernetes-101/workshop
 ```
 
 Build the app as a static binary.
