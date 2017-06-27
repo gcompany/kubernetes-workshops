@@ -13,6 +13,7 @@ In this lab you will create a Pod named `monolith` and interact with it using th
 Explore the `monolith` pod configuration file:
 
 ```
+cd go/src/github.com/GoogleCloudPlatform/kubernetes-workshops/bundles/kubernetes-101/workshop/
 cat pods/monolith.yaml
 ```
 
