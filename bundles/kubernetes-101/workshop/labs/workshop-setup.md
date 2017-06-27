@@ -27,6 +27,7 @@ In your **Cloud Shell** terminal, issue the following commands (feel free to cha
 ```
 gcloud config set compute/zone europe-west1-b
 gcloud container clusters create myk8scluster --num-nodes 7
+gcloud container clusters get-credentials myk8scluster
 ```
 
 #### Clone repository
