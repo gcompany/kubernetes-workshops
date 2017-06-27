@@ -101,7 +101,7 @@ us.gcr.io/awesome-project/example-image
 To push to the registry using gcloud and docker, use '--' to pass docker args
 ```bash
 # Upload the image into your container registry
-gcloud docker push <gcr.io>/<project_id>/monolith:1.0.0
+gcloud docker -- push <gcr.io>/<project_id>/monolith:1.0.0
 ```
 
 ## Clean up
